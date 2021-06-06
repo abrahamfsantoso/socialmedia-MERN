@@ -50,6 +50,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const postRoutes = require("./routes/posts");
+const conversationRoute = require("./routes/conversations");
+const messageRoute = require("./routes/messages");
 
 app.get("/", (req, res) => {
   res.send("Welcome to homepage");
@@ -59,5 +61,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
 
 app.listen(5000, () => console.log("Backend server is running"));
